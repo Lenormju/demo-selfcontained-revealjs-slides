@@ -11,10 +11,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4  # official action from GitHub, no pinning required
+      - name: Put files into a directory
+        run: |
+          mkdir public
+          cp index.html public/
       - name: Upload page
         uses: actions/upload-pages-artifact@v3  # official action from GitHub, no pinning required
         with:
-          path: index.html
+          path: public
 
   publish:
     permissions:
